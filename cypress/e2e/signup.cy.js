@@ -2,7 +2,12 @@
 
 
 it('LOGIN TEST', function(){
-    cy.visit('https://dev-artists.alive.house/',{failOnStatusCode: false}) 
+    cy.visit('https://dev-artists.alive.house/',{
+        auth: {
+          username: 'alive-team',
+          password: 'webgl',
+        },
+      }) 
 
 
     //TO LOG IN
