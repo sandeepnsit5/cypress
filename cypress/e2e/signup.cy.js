@@ -14,13 +14,18 @@ it('LOGIN TEST', function(){
     cy.get('button').click()
     cy.get('#identifier').type('jodefom470@logodez.com')
     cy.get('#password').type('Abcd1234')
-    cy.get('.justify-end > .border').click()
+    cy.get('.justify-end > .border').click({ force: true });
 
-    cy.get(':nth-child(2) > .pb-8 > .relative > .min-w-0 > .font-regular > a').click()
-    //cy.wait(3000)
+    cy.url().should('include', 'profile-detail')
+    cy.contains('Save').click()
+    cy.url().should('include', 'upload-song')
+
+    cy.contains('next').click()
+    cy.contains('single').click()
+    cy.url().should('include', 'uploaded-song')
+    cy.get('.mb-12 > .w-full').click()
+    //cy.wait(3000)//
     //cy.scrollTo(500,800)
-
-    //cy.get('.w-\[812px\] > .border').click({force:true})
     })
     
    
